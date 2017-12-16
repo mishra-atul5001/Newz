@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="15dp"
+    android:background="@drawable/list_bkg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="25dp"
+
+    android:orientation="horizontal"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:gravity="center"
+
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/galleryImage"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_weight="7"
+       
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        >
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="#000"
+            android:shadowRadius="1.0"
+            android:textColor="@color/Chocolate"
+            android:textSize="20sp"
+            android:layout_marginBottom="5dp"
+            android:maxLines="2"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:text="News Title"/>
+
+        <TextView
+            android:id="@+id/sdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Black"
+            android:textSize="16sp"
+            android:maxLines="3"
+            android:minLines="2"
+            android:scrollHorizontally="true"
+            android:textStyle="bold|italic"
+            android:ellipsize="end"
+            android:text="Here we Describe..!!"/>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/author"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorAccent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Written By"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/time"
+                android:gravity="right"
+                android:textSize="17sp"
+                android:layout_margin="10dp"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
