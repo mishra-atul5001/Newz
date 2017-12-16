@@ -39,6 +39,19 @@
         android:textSize="25sp"
 
         android:textColor="@color/Yellow"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:id="@+id/back_to_feeds"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="18dp"
+        android:text="Back To My Feeds..!!"
+        android:textAllCaps="false"
+        android:textStyle="italic|bold"
+        android:textColor="@color/DarkKhaki"
+
+        />
 
 
 </LinearLayout>

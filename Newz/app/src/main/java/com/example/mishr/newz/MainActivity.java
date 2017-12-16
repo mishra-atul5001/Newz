@@ -1,9 +1,14 @@
 package com.example.mishr.newz;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     String NEWS_SOURCE = "bbc-news";     //engadget    //espn //daily-mail  //All are working..!!
     ListView listNews;
     ProgressBar loader;
+    private static final int TIME_DELAY = 2000;
+    private static long back_pressed;
 
     ArrayList<HashMap<String, String>> dataList = new ArrayList<HashMap<String, String>>();
     static final String KEY_AUTHOR = "author";
@@ -44,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         loader = (ProgressBar) findViewById(R.id.loader);
         listNews.setEmptyView(loader);
 
-        Toast.makeText(this, "Welcome..!!", Toast.LENGTH_SHORT).show();
+
 
         if(Function.isNetworkAvailable(getApplicationContext()))
         {
@@ -129,8 +136,10 @@ public class MainActivity extends AppCompatActivity {
         // Having those menu's respond..!!
 
         int id=item.getItemId();
-       if(id==R.id.pinit)  {
-           Toast.makeText(this, "Long Press the feed..!!", Toast.LENGTH_SHORT).show();
+       if(id==R.id.notify)  {
+           notification_service();
+           Toast.makeText(this, "Notifications have been turned on..!!", Toast.LENGTH_SHORT).show();
+
 
        }
        else if (id==R.id.cateegories){
@@ -139,18 +148,49 @@ public class MainActivity extends AppCompatActivity {
        else if (id==R.id.rateit){
            Toast.makeText(this, "Rate it on our Rating Bar..!!", Toast.LENGTH_SHORT).show();
            Intent intent = new Intent(this,RatingActivity.class);
+
            startActivity(intent);
+           finish();
        }
        else if (id==R.id.setit){
-           Toast.makeText(this, "No Settings Found..!!", Toast.LENGTH_SHORT).show();
+           Toast.makeText(this, "Settings page in Progress..!!", Toast.LENGTH_SHORT).show();
        }
 
         return true;
     }
 
     @Override
-    protected void onDestroy() {
-        Toast.makeText(this, "Thank You for your Time..!!", Toast.LENGTH_SHORT).show();
-        super.onDestroy();
+    protected void onResume() {
+        Toast.makeText(this, "Welcome Back..!!", Toast.LENGTH_SHORT).show();
+        super.onResume();
     }
+
+    
+
+    @Override
+    public void onBackPressed() {
+        if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
+            super.onBackPressed();
+        } else {
+            Toast.makeText(getBaseContext(), "Press once again to exit!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        back_pressed = System.currentTimeMillis();
+    }
+
+    public void notification_service() {
+        Bitmap icon1 = BitmapFactory.decodeResource(getResources(), R.drawable.noti_icon);
+        NotificationCompat.BigTextStyle bigTextStyle = new android.support.v4.app.NotificationCompat.BigTextStyle();
+        NotificationCompat.Builder mbuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.notifyicon)
+                .setContentTitle("Newz Daily Notification..!!")
+                .setLargeIcon(icon1)
+                .setStyle(bigTextStyle);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(0, mbuilder.build());
+
+
+    }
+
 }
+

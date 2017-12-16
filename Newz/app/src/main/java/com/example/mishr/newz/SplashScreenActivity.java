@@ -11,16 +11,16 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        Toast.makeText(this, "Hey There..!!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Welcome to the World of News..!!", Toast.LENGTH_LONG).show();
 
-        for (int i=0;i<2500;i++){
+        for (int i=0;i<2000;i++){
 
         }
         Thread timer = new Thread(){
             @Override
             public void run() {
                 try{
-                    sleep(2500);
+                    sleep(2000);
                 }
                 catch (InterruptedException e){
                     e.printStackTrace();

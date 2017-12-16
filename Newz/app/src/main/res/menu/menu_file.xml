@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
 
     <item
-        android:id="@+id/pinit"
-        android:title="Pin this Item..!!"
+        android:id="@+id/notify"
+        android:title="Turn on Notifications..!!"
         app:showAsAction="never"/>
 
    
@@ -19,7 +20,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/rateit"
-        android:title="Rate Us"
+        android:title="Rate Us..!!"
         app:showAsAction="never"/>
 
 </menu>

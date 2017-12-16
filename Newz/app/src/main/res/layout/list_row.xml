@@ -2,9 +2,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:padding="15dp"
-    android:background="@color/AntiqueWhite"
-    android:layout_width="fill_parent"
-    android:layout_height="match_parent"
+    android:background="@drawable/list_bkg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="25dp"
+
     android:orientation="horizontal"
     >
     <LinearLayout
@@ -13,12 +15,13 @@
         android:orientation="vertical"
         android:layout_margin="10dp"
         android:gravity="center"
+
         android:padding="4dp">
 
         <ImageView
             android:id="@+id/galleryImage"
             android:layout_width="70dp"
-            android:layout_height="50dp"
+            android:layout_height="100dp"
             />
     </LinearLayout>
 
@@ -28,7 +31,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+
         android:layout_weight="7"
+       
+        android:layout_margin="5dp"
+        android:padding="5dp"
         >
         <TextView
             android:id="@+id/title"
@@ -48,13 +55,15 @@
             android:id="@+id/sdetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/DarkSalmon"
+            android:textColor="@color/Black"
             android:textSize="16sp"
-            android:maxLines="2"
+            android:maxLines="3"
             android:minLines="2"
             android:scrollHorizontally="true"
+            android:textStyle="bold|italic"
             android:ellipsize="end"
             android:text="Here we Describe..!!"/>
+
 
 
 
