@@ -1,6 +1,8 @@
 package com.example.mishr.newz;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +32,8 @@ public class DetailsActivity extends AppCompatActivity {
                 if (progress == 100) {
                     loader.setVisibility(View.GONE);
                     Toast.makeText(DetailsActivity.this, "Post is Ready..!!", Toast.LENGTH_SHORT).show();
-
+                    Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE); // Added Vibration for post loading completion
+                    vibrator.vibrate(150);
                 } else {
                     loader.setVisibility(View.VISIBLE);
                     Toast.makeText(DetailsActivity.this, "Loading..Hold On..!!", Toast.LENGTH_SHORT).show();

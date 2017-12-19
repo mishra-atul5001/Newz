@@ -22,5 +22,9 @@
         android:id="@+id/rateit"
         android:title="Rate Us..!!"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/quit_app"
+        android:title="Exit..!!"
+        app:showAsAction="never"/>
 
 </menu>

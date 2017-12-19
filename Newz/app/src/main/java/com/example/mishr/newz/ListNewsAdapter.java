@@ -54,16 +54,13 @@ class ListNewsAdapter extends BaseAdapter {
         holder.title.setId(position);
         holder.sdetails.setId(position);
         holder.time.setId(position);
-
         HashMap<String, String> song = new HashMap<String, String>();
         song = data.get(position);
-
         try{
             holder.author.setText(song.get(MainActivity.KEY_AUTHOR));
             holder.title.setText(song.get(MainActivity.KEY_TITLE));
             holder.time.setText(song.get(MainActivity.KEY_PUBLISHEDAT));
             holder.sdetails.setText(song.get(MainActivity.KEY_DESCRIPTION));
-
             if(song.get(MainActivity.KEY_URLTOIMAGE).toString().length() < 5)
             {
                 holder.galleryImage.setVisibility(View.GONE);
@@ -77,7 +74,6 @@ class ListNewsAdapter extends BaseAdapter {
         return convertView;
     }
 }
-
 class ListNewsViewHolder {
     ImageView galleryImage;
     TextView author, title, sdetails, time;
