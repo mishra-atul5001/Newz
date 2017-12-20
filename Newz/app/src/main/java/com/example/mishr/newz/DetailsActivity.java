@@ -19,7 +19,6 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-
         Intent intent = getIntent();
         url = intent.getStringExtra("url");
         loader = (ProgressBar) findViewById(R.id.loader);
@@ -37,10 +36,8 @@ public class DetailsActivity extends AppCompatActivity {
                 } else {
                     loader.setVisibility(View.VISIBLE);
                     Toast.makeText(DetailsActivity.this, "Loading..Hold On..!!", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
-
     }
 }

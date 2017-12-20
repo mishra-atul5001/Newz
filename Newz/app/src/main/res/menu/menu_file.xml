@@ -9,11 +9,6 @@
         android:title="Turn on Notifications..!!"
         app:showAsAction="never"/>
 
-   
-    <item
-        android:id="@+id/cateegories"
-        android:title="Categories..!!"
-        app:showAsAction="never"/>
     <item
         android:id="@+id/setit"
         android:title="Settings..!!"

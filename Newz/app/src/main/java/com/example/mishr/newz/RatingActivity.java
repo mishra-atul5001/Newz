@@ -19,27 +19,37 @@ public class RatingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rating);
         ratingBar = findViewById(R.id.rating_the_app);
         rate = findViewById(R.id.rate_button);
-        back_to_feed = findViewById(R.id.back_to_feeds);
+       // back_to_feed = findViewById(R.id.back_to_feeds);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String rating = String.valueOf(ratingBar.getRating());
                 Toast.makeText(RatingActivity.this,"You Rated us : "+rating.toString(), Toast.LENGTH_SHORT).show();   // Rating Toast
-
+               // rate.refreshDrawableState();
             }
         });
 
-        back_to_feed.setOnClickListener(new View.OnClickListener() {
+     /*   back_to_feed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-
+                 // Commented as Back button with arrow has been enable..!!
                 startActivity(intent);
                 finish();
             }
         });
+       */
 
+    }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
+        // Enabling Up-top back arrow for more feasibility.
     }
 
     @Override

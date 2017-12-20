@@ -16,6 +16,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         radioGroup = (RadioGroup)findViewById(R.id.radio_color_group);
         Toast.makeText(this, "Color Setting as Background still in Processs..!!", Toast.LENGTH_SHORT).show();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -46,5 +47,13 @@ public class SettingsActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
     }
 }

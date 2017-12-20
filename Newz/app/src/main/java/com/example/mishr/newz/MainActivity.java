@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         listNews = (ListView) findViewById(R.id.listNews);
         loader = (ProgressBar) findViewById(R.id.loader);
         listNews.setEmptyView(loader);
@@ -118,9 +117,6 @@ public class MainActivity extends AppCompatActivity {
            notification_service();
            Toast.makeText(this, "Notifications have been turned on..!!", Toast.LENGTH_SHORT).show();
        }
-       else if (id==R.id.cateegories){
-           Toast.makeText(this, "Multiple Categories Will be Out soon..!!", Toast.LENGTH_SHORT).show();
-       }
        else if (id==R.id.rateit){
            Toast.makeText(this, "Rate it on our Rating Bar..!!", Toast.LENGTH_SHORT).show();
            Intent intent = new Intent(this,RatingActivity.class);
@@ -187,21 +183,26 @@ public class MainActivity extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.setHeaderTitle("Select Action..!!");
-        menu.add(0,v.getId(),0,"Save This Post..!!");
+        menu.add(0,v.getId(),0,"Star This Post..!!");
         menu.add(0,v.getId(),0,"Share this post..!!");
     }
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        if (item.getTitle()=="Save This Post..!!"){
-            Toast toast1 = Toast.makeText(this,"Post Saved",Toast.LENGTH_SHORT);
+        if (item.getTitle()=="Star This Post..!!"){
+            Toast toast1 = Toast.makeText(this,"Post Starred..!!",Toast.LENGTH_SHORT);
             toast1.setGravity(Gravity.TOP,0,0);
             toast1.show();
         }
         else if (item.getTitle()=="Share this post..!!"){
-            Toast toast2 = Toast.makeText(this,"Shared",Toast.LENGTH_SHORT);
+            Toast toast2 = Toast.makeText(this,"Sharing via Whatsapp...!!",Toast.LENGTH_SHORT);
             toast2.setGravity(Gravity.TOP,0,0);
             toast2.show();
+            Intent sharingintent = new Intent(Intent.ACTION_SEND);
+            sharingintent.setType("text/plain");
+            sharingintent.putExtra(Intent.EXTRA_TEXT,"Find top 10 News from BBC-News..!!"+"\n"+"Created By Atul Mishra");
+            sharingintent.setPackage("com.whatsapp");
+            startActivity(sharingintent);
         }
         return true;
     }
